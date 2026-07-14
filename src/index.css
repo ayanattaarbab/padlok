@@ -1,0 +1,143 @@
+/* Fonts & Framework Setup */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400..800&family=JetBrains+Mono:wght@500&display=swap');
+@import "tailwindcss";
+
+/* Toast notification custom width constraint */
+:root {
+    --toastify-toast-width: min(360px, 90vw);
+}
+
+/* Custom Typography Families */
+.padlok-font {
+    font-family: 'Google Sans Flex', 'Google Sans', Inter, sans-serif;
+}
+
+.padlok-mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Row entrance slide-in animation */
+@keyframes row-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Safe accessibilty settings: disables movement animation if requested */
+@media (prefers-reduced-motion: reduce) {
+    .padlok-row {
+        animation: none !important;
+    }
+}
+
+/* Interactive Input Styling */
+.padlok-input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.padlok-input:focus {
+    outline: none;
+    border-color: rgba(167, 139, 250, 0.6);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Micro-interaction adjustments for action buttons */
+.padlok-icon-btn {
+    transition: transform .18s ease, color .18s ease;
+}
+
+.padlok-icon-btn:hover {
+    transform: scale(1.15);
+}
+
+.padlok-icon-btn:active {
+    transform: scale(0.92);
+}
+
+/* Save / Update Vault button layout gradients */
+.padlok-save-btn {
+    background-size: 200% 100%;
+    background-image: linear-gradient(90deg, #7C3AED, #22D3EE, #7C3AED);
+    transition: background-position .5s ease, transform .15s ease, box-shadow .3s ease;
+    box-shadow: 0 8px 30px -10px rgba(124, 58, 237, 0.55);
+}
+
+.padlok-save-btn:hover {
+    background-position: 100% 0;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 34px -8px rgba(34, 211, 238, 0.5);
+}
+
+.padlok-save-btn:active {
+    transform: translateY(0);
+}
+
+/* Animated lists displayed in Vault container */
+.padlok-row {
+    transition: border-color .2s ease, background .2s ease, transform .2s ease;
+    animation: row-in .4s ease both;
+}
+
+.padlok-row:hover {
+    border-color: rgba(167, 139, 250, 0.35);
+    background: rgba(255, 255, 255, 0.045);
+    transform: translateY(-1px);
+}
+
+/* Custom Toast Container layout structure */
+.Toastify__toast-container {
+    padding: 0 12px;
+}
+
+/* Adjust Toast container positioning perfectly center on mobile viewports */
+@media (max-width: 480px) {
+    .Toastify__toast-container {
+        top: 16px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+}
+
+/* Toast Card Overrides: High-tech dark transparent background with blur */
+.Toastify__toast {
+    background: rgba(18, 19, 31, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #F5F5FA !important;
+    font-family: 'Google Sans Flex', 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border-radius: 14px !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.5),
+        0 4px 12px -2px rgba(0, 0, 0, 0.3) !important;
+    padding: 14px 16px !important;
+    align-items: center !important;
+}
+
+/* Toast Progress bar custom color matches */
+.Toastify__progress-bar {
+    background: linear-gradient(90deg, #10B981, #22D3EE) !important;
+    border-bottom-left-radius: 14px;
+}
+
+/* Close action icon stylings */
+.Toastify__close-button {
+    color: #9CA3B8 !important;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    align-self: center !important;
+}
+
+.Toastify__close-button:hover {
+    opacity: 1;
+    color: #FFFFFF !important;
+}
